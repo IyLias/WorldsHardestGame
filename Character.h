@@ -22,6 +22,14 @@ class Character{
     
     void draw();
 
+    int setXpos(int x) { xpos = x; }
+
+    int getXpos() { return xpos; }
+
+    int setYpos(int y) { ypos = y; }
+
+    int getYpos() { return ypos; }
+
  private:
     int xpos;
     int ypos;

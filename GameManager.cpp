@@ -23,20 +23,20 @@ void GameManager::playGame(Character& hero){
 	  switch(_getch()){
  	    
 	     case 'A': //up
-  	   	  cout << "up" << endl;
-		  hero.move();
+  	   	//  cout << "up" << endl;
+		  hero.move(hero.getXpos(),hero.getYpos()-1);
 		  break;
 	     case 'B': //down
-                  cout << "down" << endl;
-		  hero.move();
+               //   cout << "down" << endl;
+		  hero.move(hero.getXpos(),hero.getYpos()+1);
   		  break;
 	     case 'C': //right
-		  cout << "right" << endl;
-		  hero.move();
+		 //cout << "right" << endl;
+		  hero.move(hero.getXpos()+1,hero.getYpos());
 		  break;
 	     case 'D': //left
-		  cout << "left" << endl;
-	   	  hero.move();
+		 //cout << "left" << endl;
+	   	  hero.move(hero.getXpos()-1,hero.getYpos());
 		  break;
 	   }
 	  }
@@ -46,7 +46,13 @@ void GameManager::playGame(Character& hero){
   }     
 
   close_keyboard();
-
 }
 
 
+void GameManager::gameEnd(){
+
+  //system(cmd); 
+
+  
+
+}
