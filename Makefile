@@ -19,7 +19,7 @@ Character.o: Character.cpp Character.h linuxfunc.h
 Pattern.o: Pattern.cpp Pattern.h
 	g++ -c Pattern.cpp
 
-Obstruct.o: Obstruct.cpp Obstruct.h linuxfunc.h
+Obstruct.o: Obstruct.cpp Obstruct.h linuxfunc.h PatternSet.h
 	g++ -c Obstruct.cpp
 
 clean:

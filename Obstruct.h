@@ -5,16 +5,21 @@
 #include <cstdlib>
 #include <vector>
 #include "linuxfunc.h"
+#include "PatternSet.h"
 
 using namespace std;
 
 #endif
 
 
+class PatternSet; 
+
 class Obstruct{
 
  public:
-   
+
+   Obstruct(int patternNum);
+
    void move();
    
    void draw();
@@ -25,6 +30,8 @@ class Obstruct{
     int ypos;
 
     char body;
+
+    PatternSet motions;
 };
 
 

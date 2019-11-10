@@ -11,7 +11,7 @@ using namespace std;
 #include "GameManager.h"
 #include "Map.h"
 #include "Character.h"
-#include "Pattern.h"
+#include "PatternSet.h"
 #include "Obstruct.h"
 
 
