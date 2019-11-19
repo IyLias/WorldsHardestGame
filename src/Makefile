@@ -7,7 +7,7 @@ linuxfunc.o: linuxfunc.cpp linuxfunc.h
 gameMain.o: gameMain.cpp TreasureHunt.h
 	g++ -c gameMain.cpp 
 
-GameManager.o: GameManager.cpp GameManager.h linuxfunc.h Obstruct.h Character.h
+GameManager.o: GameManager.cpp GameManager.h linuxfunc.h Character.h Stage.h
 	g++ -c GameManager.cpp
 
 Map.o: Map.cpp Map.h

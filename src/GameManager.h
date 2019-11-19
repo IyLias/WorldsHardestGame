@@ -4,14 +4,17 @@
 #include <vector>
 #include <iostream>
 #include <cstdlib>
+#include <fcntl.h>
 #include "linuxfunc.h"
 #include "Character.h"
 #include "PatternSet.h"
-#include "Obstruct.h"
+#include "Stage.h"
 
 using namespace std;
 
 #endif
+
+#define TOTAL_STAGE_NUM		3
 
 class Character;
 
@@ -42,12 +45,18 @@ class GameManager{
      Obstruct testObs;
      Obstruct testObs2;
 
+     Map gameMap;
+
+     Stage stage[TOTAL_STAGE_NUM];
+
      GameManager(){}
 
      GameManager(int x,int y,int patternNum):testObs(x,y,patternNum),
      testObs2(x+10,y-10,patternNum){}
 
      void init();
+
+     void readDataFromFile(); // read all datas about all stages from file
 
      void gameMenu();
 

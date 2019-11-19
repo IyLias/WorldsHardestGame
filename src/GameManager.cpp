@@ -1,11 +1,33 @@
 #include "GameManager.h"
 
 
+void GameManager::readDataFromFile(){ // read all datas about all stages from file
+
+   int datafile = open("datafile.txt",O_RDWR | O_APPEND,0644); 
+
+   // should read all stages 
+   
+   // each stage consists of one Map and several obstructs
+   // read Map datas first
+   // consists of MAXROW * MAXCOL character datas
+   
+   // each stage has different number of Obstructs
+   // each Obstruct data has their first xpos,ypos and their pattern datas
+
+   
+
+
+
+
+}
+
+
 void GameManager::init(){
    system("clear");
    gotoxy(1,1);
    cout << "hello treasure hunt!" << endl;
 
+   readDataFromFile();
 
    testObs.addMotion(5000,5000,1,20);
    testObs.addMotion(10000,10000,3,20);

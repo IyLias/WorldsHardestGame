@@ -5,12 +5,12 @@
 #include <cstdlib>
 #include <vector>
 #include <string>
+#include <fcntl.h>
 
 using namespace std;
 
 #include "PatternSet.h"
-#include "Map.h"
-#include "Obstruct.h"
+#include "Stage.h"
 #include "Character.h"
 #include "GameManager.h"
 
