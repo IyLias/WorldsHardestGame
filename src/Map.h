@@ -10,8 +10,11 @@ using namespace std;
 
 #include <cstring>
 
-#define MAXROW		25
-#define MAXCOL		50
+#define MAXROW		15
+#define MAXCOL		30
+
+#define WALL		-1
+#define SPACE		0
 
 
 class Map{

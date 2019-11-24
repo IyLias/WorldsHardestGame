@@ -22,9 +22,31 @@ class Stage{
    Stage(){}
 
 
-   void setDatas(); // get datas from GameManager.readDataFromFile() 
-   // set datas to Map and several Obstructs
+   void setDatas(char * buf){
+   
+   	// get datas from GameManager.readDataFromFile() 
+   	// set datas to Map and several Obstructs
 
+        
+
+
+
+   }
+
+
+   void setGameMap(char * buf){
+	gameMap.setMap(buf);
+   }
+
+   void drawMap(){
+       gameMap.printMap();
+   }
+
+
+   void moveObstructs(){
+	for(int i=0;i<Obstructs.size();i++)
+	   Obstructs[i].move();
+   }
 
    void addObstruct(const Obstruct& obs){
       Obstructs.push_back(obs);

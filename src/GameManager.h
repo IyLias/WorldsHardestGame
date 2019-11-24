@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <fcntl.h>
+#include <unistd.h>
 #include "linuxfunc.h"
 #include "Character.h"
 #include "PatternSet.h"
@@ -15,6 +16,9 @@ using namespace std;
 #endif
 
 #define TOTAL_STAGE_NUM		3
+
+#define BUF_SIZE_FOR_MAP	MAXROW * MAXCOL + 1
+
 
 class Character;
 
@@ -47,12 +51,14 @@ class GameManager{
 
      Map gameMap;
 
-     Stage stage[TOTAL_STAGE_NUM];
+     Stage stage[TOTAL_STAGE_NUM+1]; //index start from 1
 
      GameManager(){}
 
      GameManager(int x,int y,int patternNum):testObs(x,y,patternNum),
-     testObs2(x+10,y-10,patternNum){}
+     testObs2(x+10,y-10,patternNum){
+        curStageNum=1;
+     }
 
      void init();
 
@@ -62,6 +68,10 @@ class GameManager{
 
      void playGame(Character& hero);
 
+     bool checkGameEnd();
+
+     bool checkGameClear();
+
      void gameEnd();
 
   private:
@@ -69,5 +79,6 @@ class GameManager{
      bool gameClearFlag;
      bool gameEndFlag;
 
+     int curStageNum; // index for accessing Stage array
 };
 

@@ -4,6 +4,7 @@
 void GameManager::readDataFromFile(){ // read all datas about all stages from file
 
    int datafile = open("datafile.txt",O_RDWR | O_APPEND,0644); 
+   char bufForMap[BUF_SIZE_FOR_MAP]; 
 
    // should read all stages 
    
@@ -14,9 +15,9 @@ void GameManager::readDataFromFile(){ // read all datas about all stages from fi
    // each stage has different number of Obstructs
    // each Obstruct data has their first xpos,ypos and their pattern datas
 
+   read(datafile,bufForMap,BUF_SIZE_FOR_MAP);      
+
    
-
-
 
 
 }
@@ -29,8 +30,8 @@ void GameManager::init(){
 
    readDataFromFile();
 
-   testObs.addMotion(5000,5000,1,20);
-   testObs.addMotion(10000,10000,3,20);
+   testObs.addMotion(500,500,1,20);
+   testObs.addMotion(1000,1000,3,20);
 
    testObs.draw();
 
