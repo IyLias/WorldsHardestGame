@@ -24,10 +24,10 @@ class Stage{
 
    void setDatas(char * buf){
    
-   	// get datas from GameManager.readDataFromFile() 
-   	// set datas to Map and several Obstructs
+   // get datas from GameManager.readDataFromFile() 
+   // set datas to Map and several Obstructs
 
-        
+     setGameMap(buf);      
 
 
 

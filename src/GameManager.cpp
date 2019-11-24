@@ -17,7 +17,7 @@ void GameManager::readDataFromFile(){ // read all datas about all stages from fi
 
    read(datafile,bufForMap,BUF_SIZE_FOR_MAP);      
 
-   
+   stage[curStageNum].setDatas(bufForMap);   
 
 
 }
@@ -35,8 +35,8 @@ void GameManager::init(){
 
    testObs.draw();
 
-   testObs2.addMotion(7000,7000,2,15);
-   testObs2.addMotion(10000,10000,0,15);
+   testObs2.addMotion(700,700,2,15);
+   testObs2.addMotion(1000,1000,0,15);
 
    testObs2.draw();
 }
@@ -44,10 +44,12 @@ void GameManager::init(){
 
 void GameManager::playGame(Character& hero){
 
+  stage[curStageNum].drawMap();
+
   while(1){
-    
-     testObs.move();
-     testObs2.move();
+
+  // stage[curStageNum].drawMap();
+  // stage[curStageNum].moveObstructs();
 
      if(_kbhit()){
           int ch = _getch();
@@ -80,6 +82,9 @@ void GameManager::playGame(Character& hero){
 	  }
 
      }
+
+     testObs.move();
+     testObs2.move();
 
   }     
 

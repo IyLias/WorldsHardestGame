@@ -5,7 +5,7 @@
 
 int main(){
 
- GameManager GM(50,25,2);
+ GameManager GM(10,15,2);
  GM.init();
 
  Character hero;

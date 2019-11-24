@@ -11,7 +11,7 @@ Character::Character(){
 
 void Character::move(int x,int y){
 
- gotoxy(xpos,ypos); cout << ' '; fflush(stdout);
+ gotoxy(xpos,ypos); cout << ' '; //fflush(stdout);
  xpos = x, ypos = y;
  draw();
 }

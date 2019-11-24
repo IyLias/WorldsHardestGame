@@ -8,7 +8,7 @@ void Obstruct::move(){
     patternStarted = true;
  }
  
- movePattern.period -= 0.1;
+ movePattern.period -= 0.01;
  if(movePattern.period <= 0){ //when period gets less than 0, then Obstruct moves!
      movePattern.period = movePattern.vel;
      movePattern.curMoves++;
@@ -36,6 +36,6 @@ void Obstruct::move(){
 void Obstruct::draw(){
 
  gotoxy(xpos,ypos);
- cout << body; fflush(stdout);
+ cout << body; //fflush(stdout);
  gotoxy(xpos,ypos);
 }

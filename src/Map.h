@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <iostream>
+#include "linuxfunc.h"
 
 using namespace std;
 
@@ -13,9 +14,8 @@ using namespace std;
 #define MAXROW		15
 #define MAXCOL		30
 
-#define WALL		-1
-#define SPACE		0
-
+#define MAP_START_XPOS	5
+#define MAP_START_YPOS	5
 
 class Map{
 
@@ -40,14 +40,21 @@ class Map{
    	    
 	 }
 	     
-     }     
+     }    
+
+
+
+
 
      void printMap(){
 
 	for(int i=0;i<MAXROW;i++){
+	   gotoxy(MAP_START_XPOS,MAP_START_YPOS+i);
    	   for(int j=0;j<MAXCOL;j++)
-		cout << map[i][j];
-	   cout << endl;
+		if(map[i][j] == '1')
+		   cout << '+';
+	        else
+		   cout << ' ';
 	}
 
      }
