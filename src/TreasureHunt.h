@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include <fcntl.h>
+#include "linuxfunc.h"
 
 using namespace std;
 

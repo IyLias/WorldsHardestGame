@@ -35,7 +35,13 @@ class Obstruct{
       body = '@';
    }
 
+   int getXpos(){
+      return xpos;
+   }
 
+   int getYpos(){
+      return ypos;
+   }
 
    void addMotion(double period,double vel,int dir,int tMoves){
      tempPattern.setPattern(period,vel,dir,0,tMoves); 

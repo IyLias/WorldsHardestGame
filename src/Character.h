@@ -24,11 +24,11 @@ class Character{
 
     int setXpos(int x) { xpos = x; }
 
-    int getXpos() { return xpos; }
+    int getXpos() const { return xpos; }
 
     int setYpos(int y) { ypos = y; }
 
-    int getYpos() { return ypos; }
+    int getYpos() const { return ypos; }
 
  private:
     int xpos;

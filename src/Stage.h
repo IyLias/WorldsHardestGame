@@ -18,8 +18,10 @@ class Stage{
 
 
  public:
+ 
+   int numOfObstructs; // number of obstructs in this Stage
 
-   Stage(){}
+   Stage(){numOfObstructs=0;}
 
 
    void setDatas(char * buf){
@@ -29,6 +31,7 @@ class Stage{
 
      setGameMap(buf);      
 
+   //  cout << "buf size: " << strlen(buf) << endl;
 
 
    }
@@ -50,8 +53,16 @@ class Stage{
 
    void addObstruct(const Obstruct& obs){
       Obstructs.push_back(obs);
+      numOfObstructs++;
    }
 
+   int getCurObstructXpos(int cur){
+	return Obstructs[cur].getXpos();
+   }
+
+   int getCurObstructYpos(int cur){
+	return Obstructs[cur].getYpos();
+   }
 
 
  private:

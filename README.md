@@ -3,15 +3,17 @@
 
 problems)
 
--> when moving character, obstructs make weird characters on the screen
-
-
+->  
 
 
 
 TODO)
 
 -> implement Map class and draw
+
+-> read datas of Obstructs from datafile.txt
+
+-> implement checkGameClear()
 
 -> make GameManager have Stage class which has Map and Obstruct for corresponding stage
 

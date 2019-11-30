@@ -15,12 +15,19 @@ void GameManager::readDataFromFile(){ // read all datas about all stages from fi
    // each stage has different number of Obstructs
    // each Obstruct data has their first xpos,ypos and their pattern datas
 
-   read(datafile,bufForMap,BUF_SIZE_FOR_MAP);      
+   //for(int i=0;i< TOTAL_STAGE_NUM ; i++){
 
-   stage[curStageNum].setDatas(bufForMap);   
+     for(int i=0;i<MAXROW;i++){
+        memset(bufForMap,0x00,sizeof(bufForMap));
+        read(datafile,bufForMap,MAXCOL+1);      
+        stage[curStageNum].setDatas(bufForMap);
+     }
 
+     
 
-}
+   //}
+
+ }
 
 
 void GameManager::init(){
@@ -39,6 +46,18 @@ void GameManager::init(){
    testObs2.addMotion(1000,1000,0,15);
 
    testObs2.draw();
+}
+
+
+bool GameManager::checkCharacterObstructCrush(const Character& hero){
+
+  for(int i=0;i<stage[curStageNum].numOfObstructs;i++){  
+      if(hero.getXpos() == stage[curStageNum].getCurObstructXpos(i) &&
+		      hero.getYpos() == stage[curStageNum].getCurObstructYpos(i))
+	      return true;
+  }
+
+  return false;
 }
 
 
@@ -82,6 +101,8 @@ void GameManager::playGame(Character& hero){
 	  }
 
      }
+
+     //checkCharacterObstructCrush();
 
      testObs.move();
      testObs2.move();

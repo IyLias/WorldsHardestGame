@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <fcntl.h>
 #include <unistd.h>
+#include <cstring>
 #include "linuxfunc.h"
 #include "Character.h"
 #include "PatternSet.h"
@@ -58,6 +59,7 @@ class GameManager{
      GameManager(int x,int y,int patternNum):testObs(x,y,patternNum),
      testObs2(x+10,y-10,patternNum){
         curStageNum=1;
+	gameMap.setRow(0);
      }
 
      void init();
@@ -68,7 +70,7 @@ class GameManager{
 
      void playGame(Character& hero);
 
-     bool checkGameEnd();
+     bool checkCharacterObstructCrush(const Character& hero);
 
      bool checkGameClear();
 

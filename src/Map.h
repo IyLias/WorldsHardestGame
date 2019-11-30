@@ -12,10 +12,10 @@ using namespace std;
 #include <cstring>
 
 #define MAXROW		15
-#define MAXCOL		30
+#define MAXCOL		70
 
-#define MAP_START_XPOS	5
-#define MAP_START_YPOS	5
+#define MAP_START_XPOS	40
+#define MAP_START_YPOS	20
 
 class Map{
 
@@ -23,28 +23,28 @@ class Map{
     
     char map[MAXROW][MAXCOL];
 
+    int row;
+
 
    public:
      
-     Map(){}
+     Map(){row=0;}
+
+     Map(int row){
+	this->row = row;
+     }
 
      void setMap(char * buf){
-         int count=0;
-	 int row=0;
-	 for(int i=0;i<strlen(buf);i++){
-	    map[row][count] = buf[i];
-	    if((++count) % MAXCOL == 0){
-		row++;	
-		count=0;
-	    }
-   	    
+	 for(int i=0;i<MAXCOL;i++){
+	    map[row][i] = buf[i];
 	 }
-	     
+	 row++;
      }    
 
 
-
-
+     void setRow(int r){
+	 row = r;
+     }
 
      void printMap(){
 
