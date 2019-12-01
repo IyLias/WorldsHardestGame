@@ -17,6 +17,8 @@ TODO)
 
 -> arrange obstructs in stage 1 systematically 
 
+-> decorate side of game screen (around Map) // like adding options or guide or something else
+
 -> add Treasure in Map and implement checkGameCLear()
 
 -> add more Stages at most 4 or 5
