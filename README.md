@@ -9,14 +9,18 @@ problems)
 
 TODO)
 
--> implement Map class and draw
+-> implement Map class and draw (solved)
 
--> read datas of Obstructs from datafile.txt
+-> read datas of Obstructs from datafile.txt (solved)
 
--> implement checkGameClear()
+-> make GameManager have Stage class which has Map and Obstruct for corresponding stage (solved)
 
--> make GameManager have Stage class which has Map and Obstruct for corresponding stage
+-> arrange obstructs in stage 1 systematically 
 
--> implement opening 
+-> add Treasure in Map and implement checkGameCLear()
+
+-> add more Stages at most 4 or 5
+
+-> implement opening menu
 
 -> implement ending
