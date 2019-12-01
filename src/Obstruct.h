@@ -9,6 +9,8 @@
 
 using namespace std;
 
+//int direction[4][2]={{0,-1},{-1,0},{0,1},{1,0}};
+
 #endif
 
 class Obstruct{
@@ -23,16 +25,22 @@ class Obstruct{
    Obstruct(int x,int y,int patternNum){
       motions.setPatternNum(patternNum);
 
-      dir[0][0]=0,dir[0][1]=-1;
-      dir[1][0]=-1,dir[1][1]=0;
-      dir[2][0]=0,dir[2][1]=1;
-      dir[3][0]=1,dir[3][1]=0;
-
       this->patternNum = patternNum;
       xpos = x; ypos = y;
       curPattern=0;
       patternStarted = false;
       body = '@';
+   }
+
+   void setObstruct(int x,int y,int patternNum){
+
+       motions.setPatternNum(patternNum);
+
+       this->patternNum = patternNum;
+       xpos = x; ypos = y;
+       curPattern = 0;
+       patternStarted = false;
+       body = '@';
    }
 
    int getXpos(){
@@ -61,10 +69,10 @@ class Obstruct{
 
     int patternNum; // total number of patterns
 
-    int dir[4][2];
+    static int direction[4][2];
 
-    Pattern tempPattern;
-    Pattern movePattern;
+    Pattern tempPattern; // pattern for Obstruct.addMotion() 
+    Pattern movePattern; // pattern for Obstruct.move()
 
     bool patternStarted;
 

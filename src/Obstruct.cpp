@@ -1,6 +1,8 @@
 #include "Obstruct.h"
 
 
+int Obstruct::direction[4][2]={{0,-1},{-1,0},{0,1},{1,0}};
+
 void Obstruct::move(){
  
  if(patternStarted == false){ 
@@ -14,10 +16,10 @@ void Obstruct::move(){
      movePattern.curMoves++;
      gotoxy(xpos,ypos); cout << ' ';
      
-     xpos += dir[movePattern.dir][0];
+     xpos += direction[movePattern.dir][0];
      if(xpos <= 1) xpos = 1;
 
-     ypos += dir[movePattern.dir][1];
+     ypos += direction[movePattern.dir][1];
      if(ypos <= 1) ypos = 1;
      draw(); // move with direction
  }

@@ -1,10 +1,30 @@
 #include "GameManager.h"
 
 
+int GameManager::readIntData(int fp){
+
+  char ch=0;
+  char num[MAXLEN];
+  int idx=0;
+ 
+  memset(num,0x00,MAXLEN);
+
+  while(1){
+    read(fp,&ch,1);
+    if(ch == ' ' || ch == '\n') break;
+    num[idx++] = ch;
+  }
+
+  return atoi(num);
+}
+
 void GameManager::readDataFromFile(){ // read all datas about all stages from file
 
    int datafile = open("datafile.txt",O_RDWR | O_APPEND,0644); 
+   int obstructNum=0;
    char bufForMap[BUF_SIZE_FOR_MAP]; 
+   ObstructData obstructData;
+   PatternData patternData;
 
    // should read all stages 
    
@@ -20,10 +40,23 @@ void GameManager::readDataFromFile(){ // read all datas about all stages from fi
      for(int i=0;i<MAXROW;i++){
         memset(bufForMap,0x00,sizeof(bufForMap));
         read(datafile,bufForMap,MAXCOL+1);      
-        stage[curStageNum].setDatas(bufForMap);
+        stage[curStageNum].setGameMap(bufForMap);
      }
-
      
+     obstructNum = readIntData(datafile);
+   //cout << "obstruct num for stage 1: " << obstructNum << endl;
+     for(int i=0;i<obstructNum;i++){
+       obstructData.xpos = readIntData(datafile);obstructData.ypos = readIntData(datafile); obstructData.patternNum = readIntData(datafile); 
+     //cout << "obstruct data: " << obstructData.xpos << " " << obstructData.ypos << " " << obstructData.patternNum << endl;
+       stage[curStageNum].setObstruct(obstructData.xpos,obstructData.ypos,obstructData.patternNum);
+
+       for(int j=0;j<obstructData.patternNum;j++){
+	   patternData.period = readIntData(datafile); patternData.vel = readIntData(datafile); patternData.dir = readIntData(datafile);patternData.totalMoves = readIntData(datafile);
+      //   cout << "pattern data: " << patternData.period << " " << patternData.vel << " " << patternData.dir << " " << patternData.totalMoves << endl;
+	   stage[curStageNum].obstructAddMotion(patternData.period,patternData.vel,patternData.dir,patternData.totalMoves);
+       }
+
+     }
 
    //}
 
@@ -31,21 +64,12 @@ void GameManager::readDataFromFile(){ // read all datas about all stages from fi
 
 
 void GameManager::init(){
-   system("clear");
+   system("clear"); // clear screen
+   system("setterm -cursor off"); // command for hiding cursor
    gotoxy(1,1);
    cout << "hello treasure hunt!" << endl;
 
    readDataFromFile();
-
-   testObs.addMotion(500,500,1,20);
-   testObs.addMotion(1000,1000,3,20);
-
-   testObs.draw();
-
-   testObs2.addMotion(700,700,2,15);
-   testObs2.addMotion(1000,1000,0,15);
-
-   testObs2.draw();
 }
 
 
@@ -64,11 +88,12 @@ bool GameManager::checkCharacterObstructCrush(const Character& hero){
 void GameManager::playGame(Character& hero){
 
   stage[curStageNum].drawMap();
+  stage[curStageNum].drawObstructs();
+  hero.draw();
 
-  while(1){
+  while(checkCharacterObstructCrush(hero) == false){
 
-  // stage[curStageNum].drawMap();
-  // stage[curStageNum].moveObstructs();
+     stage[curStageNum].moveObstructs();
 
      if(_kbhit()){
           int ch = _getch();
@@ -98,15 +123,11 @@ void GameManager::playGame(Character& hero){
 	   	  hero.move(hero.getXpos()-1,hero.getYpos());
 		  break;
 	   }
-	  }
+	 }
 
      }
 
-     //checkCharacterObstructCrush();
-
-     testObs.move();
-     testObs2.move();
-
+    
   }     
 
   close_keyboard();

@@ -13,6 +13,27 @@ using namespace std;
 #include "Map.h"
 #include "Obstruct.h"
 
+struct __ObstructData{ // Obstruct data set for reading from datafile
+   
+   int xpos;
+   int ypos;
+   int patternNum;
+
+};
+typedef struct __ObstructData ObstructData;
+
+
+struct __PatternData{  // pattern data set for reading from datafile
+   
+   double period;
+   double vel;
+
+   int dir;
+   int totalMoves;
+
+};
+typedef struct __PatternData PatternData;
+
 
 class Stage{
 
@@ -23,28 +44,28 @@ class Stage{
 
    Stage(){numOfObstructs=0;}
 
-
-   void setDatas(char * buf){
-   
-   // get datas from GameManager.readDataFromFile() 
-   // set datas to Map and several Obstructs
-
-     setGameMap(buf);      
-
-   //  cout << "buf size: " << strlen(buf) << endl;
-
-
-   }
-
-
    void setGameMap(char * buf){
 	gameMap.setMap(buf);
+   }
+
+   void setObstruct(int x,int y,int patternNum){
+      Obstruct obstruct(x,y,patternNum);
+      Obstructs.push_back(obstruct);
+      numOfObstructs++; 
+   }
+
+   void obstructAddMotion(double period,double vel,int dir,int tMoves){	
+      Obstructs[numOfObstructs-1].addMotion(period,vel,dir,tMoves);
    }
 
    void drawMap(){
        gameMap.printMap();
    }
 
+   void drawObstructs(){
+       for(int i=0;i<Obstructs.size();i++)
+	    Obstructs[i].draw();
+   }
 
    void moveObstructs(){
 	for(int i=0;i<Obstructs.size();i++)

@@ -20,6 +20,7 @@ using namespace std;
 
 #define BUF_SIZE_FOR_MAP	MAXROW * MAXCOL + 1
 
+#define MAXLEN		10 // for readIntData()
 
 class Character;
 
@@ -47,22 +48,21 @@ class GameManager{
 
   public: 
 
-     Obstruct testObs;
-     Obstruct testObs2;
+  //   Obstruct testObs;
+  //   Obstruct testObs2;
 
      Map gameMap;
 
      Stage stage[TOTAL_STAGE_NUM+1]; //index start from 1
 
-     GameManager(){}
-
-     GameManager(int x,int y,int patternNum):testObs(x,y,patternNum),
-     testObs2(x+10,y-10,patternNum){
+     GameManager(){
         curStageNum=1;
 	gameMap.setRow(0);
      }
 
      void init();
+
+     int readIntData(int fp);
 
      void readDataFromFile(); // read all datas about all stages from file
 

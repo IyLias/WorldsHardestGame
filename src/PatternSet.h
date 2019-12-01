@@ -16,7 +16,6 @@ class PatternSet{
 
   PatternSet(int patNum){
     patternNum = patNum;
-
   }
 
   void setPatternNum(int pNum){
@@ -26,7 +25,8 @@ class PatternSet{
   int getPatternNum() { return patternNum;}
 
   void addMotion(Pattern pattern){
-     patternSet.push_back(pattern);
+    assert(patternSet.size()+1 <= patternNum);     
+    patternSet.push_back(pattern);
   }
 
   Pattern getCurPattern(int cur){

@@ -5,11 +5,10 @@
 
 int main(){
 
- GameManager GM(10,15,2);
+ GameManager GM;
  GM.init();
 
  Character hero;
- hero.draw();
 
  GM.playGame(hero);
 

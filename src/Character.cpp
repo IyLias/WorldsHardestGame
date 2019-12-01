@@ -3,8 +3,8 @@
 Character::Character(){
 
  body = '#';
- xpos = 10;
- ypos = 10;
+ xpos = 41;
+ ypos = 30;
 
 }
 
