@@ -52,7 +52,7 @@ void GameManager::readDataFromFile(){ // read all datas about all stages from fi
 
        for(int j=0;j<obstructData.patternNum;j++){
 	   patternData.period = readIntData(datafile); patternData.vel = readIntData(datafile); patternData.dir = readIntData(datafile);patternData.totalMoves = readIntData(datafile);
-      //   cout << "pattern data: " << patternData.period << " " << patternData.vel << " " << patternData.dir << " " << patternData.totalMoves << endl;
+       //  cout << "pattern data: " << patternData.period << " " << patternData.vel << " " << patternData.dir << " " << patternData.totalMoves << endl;
 	   stage[curStageNum].obstructAddMotion(patternData.period,patternData.vel,patternData.dir,patternData.totalMoves);
        }
 
