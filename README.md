@@ -23,6 +23,8 @@ TODO)
 
 -> add Treasure in Map and implement checkGameCLear()
 
+-> add new Obstruct which directly follows Character // calculating the distance between Character and Obstruct, choose the shortest path 
+
 -> add more Stages at most 4 or 5
 
 -> implement opening menu
