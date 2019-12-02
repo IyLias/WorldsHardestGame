@@ -85,6 +85,9 @@ class Stage{
 	return Obstructs[cur].getYpos();
    }
 
+   char getMapCurPosition(int r,int c){
+      return gameMap.getCurPosition(r,c);
+   }
 
  private:
    Map gameMap;

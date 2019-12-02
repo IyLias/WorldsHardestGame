@@ -9,8 +9,6 @@
 
 using namespace std;
 
-//int direction[4][2]={{0,-1},{-1,0},{0,1},{1,0}};
-
 #endif
 
 class Obstruct{

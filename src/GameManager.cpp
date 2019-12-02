@@ -108,19 +108,23 @@ void GameManager::playGame(Character& hero){
  	    
 	     case 'A': //up
   	   	//  cout << "up" << endl;
-		  hero.move(hero.getXpos(),hero.getYpos()-1);
+		if(stage[curStageNum].getMapCurPosition(hero.getYpos()-1-MAP_START_YPOS,hero.getXpos()-MAP_START_XPOS) != WALL)  
+		   hero.move(hero.getXpos(),hero.getYpos()-1);
 		  break;
 	     case 'B': //down
                //   cout << "down" << endl;
-		  hero.move(hero.getXpos(),hero.getYpos()+1);
+		if(stage[curStageNum].getMapCurPosition(hero.getYpos()+1-MAP_START_YPOS,hero.getXpos()-MAP_START_XPOS) != WALL)  
+		    hero.move(hero.getXpos(),hero.getYpos()+1);
   		  break;
 	     case 'C': //right
 		 //cout << "right" << endl;
-		  hero.move(hero.getXpos()+1,hero.getYpos());
+		if(stage[curStageNum].getMapCurPosition(hero.getYpos()-MAP_START_YPOS,hero.getXpos()+1-MAP_START_XPOS) != WALL)  
+		    hero.move(hero.getXpos()+1,hero.getYpos());
 		  break;
 	     case 'D': //left
 		 //cout << "left" << endl;
-	   	  hero.move(hero.getXpos()-1,hero.getYpos());
+	   	if(stage[curStageNum].getMapCurPosition(hero.getYpos()-MAP_START_YPOS,hero.getXpos()-1-MAP_START_XPOS) != WALL)  
+		  hero.move(hero.getXpos()-1,hero.getYpos());
 		  break;
 	   }
 	 }

@@ -15,6 +15,8 @@ TODO)
 
 -> make GameManager have Stage class which has Map and Obstruct for corresponding stage (solved)
 
+-> implemented Character only move in Map (solveD)
+
 -> arrange obstructs in stage 1 systematically 
 
 -> decorate side of game screen (around Map) // like adding options or guide or something else
