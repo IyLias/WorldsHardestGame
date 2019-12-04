@@ -10,6 +10,8 @@ int main(){
 
  Character hero;
 
+// GM.gameMenu();
+
  GM.playGame(hero);
 
  

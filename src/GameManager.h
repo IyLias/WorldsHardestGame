@@ -16,11 +16,14 @@ using namespace std;
 
 #endif
 
-#define TOTAL_STAGE_NUM		3
+#define TOTAL_STAGE_NUM		2
 
 #define BUF_SIZE_FOR_MAP	MAXROW * MAXCOL + 1
 
 #define MAXLEN		10 // for readIntData()
+
+#define SCREEN_HEIGHT		50
+#define SCREEN_WIDTH		180
 
 class Character;
 
@@ -48,9 +51,6 @@ class GameManager{
 
   public: 
 
-  //   Obstruct testObs;
-  //   Obstruct testObs2;
-
      Map gameMap;
 
      Stage stage[TOTAL_STAGE_NUM+1]; //index start from 1
@@ -67,6 +67,8 @@ class GameManager{
      void readDataFromFile(); // read all datas about all stages from file
 
      void gameMenu();
+
+     void gameGuide();
 
      void playGame(Character& hero);
 

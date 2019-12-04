@@ -17,7 +17,7 @@ using namespace std;
 #define WALL		49 //ascii code for 1
 
 #define MAP_START_XPOS	40
-#define MAP_START_YPOS	20
+#define MAP_START_YPOS	10
 
 class Map{
 

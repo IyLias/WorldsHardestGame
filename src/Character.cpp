@@ -4,7 +4,7 @@ Character::Character(){
 
  body = '#';
  xpos = 41;
- ypos = 30;
+ ypos = 21;
 
 }
 

@@ -35,9 +35,9 @@ void GameManager::readDataFromFile(){ // read all datas about all stages from fi
    // each stage has different number of Obstructs
    // each Obstruct data has their first xpos,ypos and their pattern datas
 
-   //for(int i=0;i< TOTAL_STAGE_NUM ; i++){
+   for(int i=0;i< TOTAL_STAGE_NUM ; i++){
 
-     for(int i=0;i<MAXROW;i++){
+     for(int j=0;j<MAXROW;j++){
         memset(bufForMap,0x00,sizeof(bufForMap));
         read(datafile,bufForMap,MAXCOL+1);      
         stage[curStageNum].setGameMap(bufForMap);
@@ -45,21 +45,23 @@ void GameManager::readDataFromFile(){ // read all datas about all stages from fi
      
      obstructNum = readIntData(datafile);
    //cout << "obstruct num for stage 1: " << obstructNum << endl;
-     for(int i=0;i<obstructNum;i++){
+     for(int k=0;k<obstructNum;k++){
        obstructData.xpos = readIntData(datafile);obstructData.ypos = readIntData(datafile); obstructData.patternNum = readIntData(datafile); 
      //cout << "obstruct data: " << obstructData.xpos << " " << obstructData.ypos << " " << obstructData.patternNum << endl;
        stage[curStageNum].setObstruct(obstructData.xpos,obstructData.ypos,obstructData.patternNum);
 
-       for(int j=0;j<obstructData.patternNum;j++){
+       for(int p=0;p<obstructData.patternNum;p++){
 	   patternData.period = readIntData(datafile); patternData.vel = readIntData(datafile); patternData.dir = readIntData(datafile);patternData.totalMoves = readIntData(datafile);
-       //  cout << "pattern data: " << patternData.period << " " << patternData.vel << " " << patternData.dir << " " << patternData.totalMoves << endl;
+         //cout << "pattern data: " << patternData.period << " " << patternData.vel << " " << patternData.dir << " " << patternData.totalMoves << endl;
 	   stage[curStageNum].obstructAddMotion(patternData.period,patternData.vel,patternData.dir,patternData.totalMoves);
        }
 
      }
 
-   //}
+     curStageNum++;
+   }
 
+   curStageNum--;
  }
 
 
@@ -67,9 +69,88 @@ void GameManager::init(){
    system("clear"); // clear screen
    system("setterm -cursor off"); // command for hiding cursor
    gotoxy(1,1);
-   cout << "hello treasure hunt!" << endl;
+   //cout << "hello treasure hunt!" << endl;
 
    readDataFromFile();
+}
+
+
+void GameManager::gameMenu(){
+
+   
+  gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-41);
+  cout << "****************     ****************    ****************    ===================    =               = ";
+  gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-40);
+  cout << "****************_    ****************    ****************                   =               = ";
+  gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-39);
+  cout << "      ****           ****       *****    ***                ===================    =               = ";
+   gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-38); 
+  cout << "      ****           ****       *****    ***                ===================    =               = ";
+    gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-37);
+  cout << "      ****           ***************     ****************    ===================    =               = ";
+    gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-36);
+  cout << "      ****           ****       ****     ***                 ===================    =               = ";
+   gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-35);
+  cout << "      ****           ****        ****    ***                ===================    =               = ";
+  gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-34);
+  cout << "      ****           ****         ****   ****************                 ===================    =               = ";
+  gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-33);
+  cout << "      ****           ****         *****  ****************    ===================    =               = ";
+
+
+
+  gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-20);
+  cout << "      ****      **     *       *    ******     *******    ******  **   *****  ******";
+
+  gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-19); 
+  cout << "      ** *     ****    **  *  **    ***        **           **   ****  ** **    ** ";
+
+  gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-18);
+  cout << "      ****    ******   **  *  **    ******     *******      **  ****** **   **  ** ===============    ===================    =               = ";
+
+  gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-17);
+  //cout << "      ****           ****          ****    ================    ===================    =               = ";
+
+
+
+}
+
+void GameManager::gameGuide(){
+
+ gotoxy(40,30);
+ cout << "---------move Character #----------";
+ gotoxy(40,32);
+ cout << "-move right: press right arrow key-";
+ gotoxy(40,34);
+ cout << "-move left: press left arrow key-";
+ gotoxy(40,36);
+ cout << "-move down: press bottom arrow key-";
+ gotoxy(40,38);
+ cout << "-move up: press up arrow key-";
+ gotoxy(40,39);
+ cout << "-----------------------------------";
+
+ 
+
+ gotoxy(80,30);
+ cout << "#    Character";
+ gotoxy(80,32);
+ cout << "@    Obstructs";
+ gotoxy(80,34);
+ cout << "$    Treasure";
+
+ gotoxy(45,8);
+ cout << "press b key to gameMenu";
+
+
+
+
+
+
+
+
+
+
 }
 
 
@@ -86,6 +167,8 @@ bool GameManager::checkCharacterObstructCrush(const Character& hero){
 
 
 void GameManager::playGame(Character& hero){
+
+  gameGuide();
 
   stage[curStageNum].drawMap();
   stage[curStageNum].drawObstructs();
