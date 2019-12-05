@@ -21,7 +21,7 @@ int GameManager::readIntData(int fp){
 void GameManager::readDataFromFile(){ // read all datas about all stages from file
 
    int datafile = open("datafile.txt",O_RDWR | O_APPEND,0644); 
-   int obstructNum=0;
+   int obstructNum=0,txpos,typos;
    char bufForMap[BUF_SIZE_FOR_MAP]; 
    ObstructData obstructData;
    PatternData patternData;
@@ -42,7 +42,11 @@ void GameManager::readDataFromFile(){ // read all datas about all stages from fi
         read(datafile,bufForMap,MAXCOL+1);      
         stage[curStageNum].setGameMap(bufForMap);
      }
-     
+
+     txpos = readIntData(datafile); typos = readIntData(datafile);
+     cout << "treasure pos : " << txpos << " " << typos << endl;
+     stage[curStageNum].setTreasure(txpos,typos);
+
      obstructNum = readIntData(datafile);
    //cout << "obstruct num for stage 1: " << obstructNum << endl;
      for(int k=0;k<obstructNum;k++){
@@ -166,6 +170,17 @@ bool GameManager::checkCharacterObstructCrush(const Character& hero){
 }
 
 
+
+bool GameManager::checkGameClear(const Character& hero){
+
+   if(hero.getXpos() == stage[curStageNum].getTreasureXpos() && hero.getYpos() == stage[curStageNum].getTreasureYpos())
+	return true; 
+
+   return false;
+}
+
+
+
 void GameManager::playGame(Character& hero){
 
   gameGuide();
@@ -214,7 +229,11 @@ void GameManager::playGame(Character& hero){
 
      }
 
-    
+
+     if(checkGameClear(hero) == true){
+	gotoxy(1,10);
+        cout << "game clear!!" << endl;
+     }
   }     
 
   close_keyboard();

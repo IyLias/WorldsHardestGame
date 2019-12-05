@@ -74,7 +74,7 @@ class GameManager{
 
      bool checkCharacterObstructCrush(const Character& hero);
 
-     bool checkGameClear();
+     bool checkGameClear(const Character& hero);
 
      void gameEnd();
 

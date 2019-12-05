@@ -85,6 +85,27 @@ class Stage{
 	return Obstructs[cur].getYpos();
    }
 
+   void setTreasure(int x,int y){
+	treasureXpos = x;
+	treasureYpos = y;
+   }
+
+   void setTreasureXpos(int x){
+	treasureXpos = x;
+   }
+
+   int getTreasureXpos(){
+       return treasureXpos;
+   }
+
+   void setTreasureYpos(int y){
+	treasureYpos = y;
+   }
+
+   int getTreasureYpos(){
+       return treasureYpos;
+   }
+
    char getMapCurPosition(int r,int c){
       return gameMap.getCurPosition(r,c);
    }
@@ -93,5 +114,8 @@ class Stage{
    Map gameMap;
  
    vector<Obstruct> Obstructs;
+
+   int treasureXpos; 
+   int treasureYpos; 
 
 };
