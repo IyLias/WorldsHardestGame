@@ -16,17 +16,25 @@ class Character{
 
  public:
 
-    Character();
+    Character(){
+      body = '#';
+      xpos = 41;
+      ypos = 11;
+    }
+
+    Character(int x,int y);
 
     void move(int x,int y);
     
     void draw();
 
-    int setXpos(int x) { xpos = x; }
+    void setBody() { body = '#'; }
+
+    void setXpos(int x) { xpos = x; }
 
     int getXpos() const { return xpos; }
 
-    int setYpos(int y) { ypos = y; }
+    void setYpos(int y) { ypos = y; }
 
     int getYpos() const { return ypos; }
 

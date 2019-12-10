@@ -13,6 +13,9 @@ using namespace std;
 #include "Map.h"
 #include "Obstruct.h"
 
+#define TOTAL_STAGE_NUM		3
+
+
 struct __ObstructData{ // Obstruct data set for reading from datafile
    
    int xpos;
@@ -42,6 +45,8 @@ class Stage{
  
    int numOfObstructs; // number of obstructs in this Stage
 
+   int characterPos[TOTAL_STAGE_NUM+1][2]; // start position for character in each stage
+
    Stage(){numOfObstructs=0;}
 
    void setGameMap(char * buf){
@@ -56,6 +61,11 @@ class Stage{
 
    void obstructAddMotion(double period,double vel,int dir,int tMoves){	
       Obstructs[numOfObstructs-1].addMotion(period,vel,dir,tMoves);
+   }
+
+   void setCharacterPos(int curStage,int x,int y){
+      characterPos[curStage][0] = x;
+      characterPos[curStage][1] = y;
    }
 
    void drawMap(){

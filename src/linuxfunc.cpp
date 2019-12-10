@@ -56,7 +56,7 @@ int _getch()
 }
 
 int _putch(int c) {
-   // putchar(c);
+ // putchar(c);
     fflush(stdout);
     return c;
 }

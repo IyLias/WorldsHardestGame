@@ -1,10 +1,10 @@
 #include "Character.h"
 
-Character::Character(){
+Character::Character(int x,int y){
 
  body = '#';
- xpos = 41;
- ypos = 11;
+ xpos = x;
+ ypos = y;
 
 }
 

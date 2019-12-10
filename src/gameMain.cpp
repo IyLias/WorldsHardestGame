@@ -8,13 +8,27 @@ int main(){
  GameManager GM;
  GM.init();
 
- Character hero;
+ while(1){
 
-// GM.gameMenu();
+   GM.gameMenu();
 
- GM.playGame(hero);
+   if(GM.getGameState() == GAME_END_STATE)
+      goto GAME_END;
 
- 
+ GAME_PLAYING:
+
+   GM.playGame();
+
+   if(GM.getGameState() == STAGE_CLEAR_STATE){
+     GM.setGameState(GAME_PLAYING_STATE); 
+     goto GAME_PLAYING;
+   }
+
+ }
+
+
+GAME_END:
+
 
  return 0;
 }

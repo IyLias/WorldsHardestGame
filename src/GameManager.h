@@ -16,14 +16,24 @@ using namespace std;
 
 #endif
 
-#define TOTAL_STAGE_NUM		2
-
 #define BUF_SIZE_FOR_MAP	MAXROW * MAXCOL + 1
 
 #define MAXLEN		10 // for readIntData()
 
 #define SCREEN_HEIGHT		50
 #define SCREEN_WIDTH		180
+
+#define CURSOR_XPOS		68	
+
+#define CURSOR_MOVE		3
+
+#define GAME_START_CURSOR	32	
+#define GAME_END_CURSOR		35
+
+#define GAME_END_STATE		11
+#define GAME_PLAYING_STATE	22
+#define GAME_MENU_STATE		33
+#define STAGE_CLEAR_STATE	44
 
 class Character;
 
@@ -51,13 +61,13 @@ class GameManager{
 
   public: 
 
-     Map gameMap;
-
      Stage stage[TOTAL_STAGE_NUM+1]; //index start from 1
+
+     Character hero; // game Main Character
 
      GameManager(){
         curStageNum=1;
-	gameMap.setRow(0);
+	hero.setBody();
      }
 
      void init();
@@ -70,18 +80,30 @@ class GameManager{
 
      void gameGuide();
 
-     void playGame(Character& hero);
+     void playGame();
 
-     bool checkCharacterObstructCrush(const Character& hero);
+     void setCharacterPos(){
+	hero.setXpos(stage[curStageNum].characterPos[curStageNum][0]);
+	hero.setYpos(stage[curStageNum].characterPos[curStageNum][1]);
+     }
 
-     bool checkGameClear(const Character& hero);
+     bool checkCharacterObstructCrush();
+
+     bool checkGameClear();
+
+     void setGameState(int state){
+	gameState = state;
+     }
+
+     int getGameState(){
+        return gameState;
+     }
 
      void gameEnd();
 
   private:
       
-     bool gameClearFlag;
-     bool gameEndFlag;
+     int gameState;
 
      int curStageNum; // index for accessing Stage array
 };

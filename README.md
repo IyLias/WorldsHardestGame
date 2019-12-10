@@ -1,13 +1,18 @@
 #LinuxProj
 
 
-problems)
+***TODO)
 
-->  
+-> ***add new Obstruct which directly follows Character // calculating the distance between Character and Obstruct, choose the shortest path 
+
+-> implement opening menu
+
+-> implement game Ending
+
+-> add details & Stages
 
 
-
-TODO)
+DONE)
 
 -> implement Map class and draw (solved)
 
@@ -23,10 +28,3 @@ TODO)
 
 -> add Treasure in Map and implement checkGameCLear() (solveddd)
 
--> ***add new Obstruct which directly follows Character // calculating the distance between Character and Obstruct, choose the shortest path 
-
--> ***add more Stages at most 4 or 5
-
--> implement opening menu
-
--> implement ending
