@@ -9,7 +9,7 @@
 
 -> implement game Ending
 
--> add details & Stages
+-> add details & Stages // add colors for all
 
 
 DONE)
