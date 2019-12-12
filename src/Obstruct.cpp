@@ -32,13 +32,28 @@ void Obstruct::move(const Character& hero, const Map& gameMap){
 
 	int chxpos = hero.getXpos();
 	int chypos = hero.getYpos();
+	double shortestDistance=INF; // store shortest distance to Character
+	int shortestIdx=0; // store shortest direction Idx
 
 	for(int i=0;i<4;i++){ // search 4 ways and find shortest
+	    if(gameMap.getCurPosition(ypos+direction[i][1]-MAP_START_YPOS , xpos+direction[i][0]-MAP_START_XPOS) != WALL){ // exclude if WALL!
+		if(!(xpos+direction[i][0] == preXpos && ypos+direction[i][1] == preYpos)){ // shouldn't be prePosition!
+		    double tempDistance = pow((xpos+direction[i][0])-chxpos,2)+pow((ypos+direction[i][1])-chypos,2); 
+	    	    if(tempDistance < shortestDistance){
+		       shortestDistance = tempDistance;
+		       shortestIdx = i;
+	 	    }
 
-	   
+		}
+
+	    }
 
 	}
 
+	preXpos = xpos;
+        xpos += direction[shortestIdx][0];
+        preYpos = ypos;
+	ypos += direction[shortestIdx][1];
      }
 
      draw(); // move with direction
@@ -51,6 +66,7 @@ void Obstruct::move(const Character& hero, const Map& gameMap){
 void Obstruct::draw(){
 
  gotoxy(xpos,ypos);
- set_color(BLUE); cout << body; set_color(WHITE); //fflush(stdout);
+
+ set_color(patternNum==1? BOLD_GREEN : BLUE); cout << body; set_color(WHITE); //fflush(stdout);
  gotoxy(xpos,ypos);
 }

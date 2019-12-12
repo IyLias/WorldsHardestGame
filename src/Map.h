@@ -69,7 +69,7 @@ class Map{
 
      }
 
-     char getCurPosition(int r,int c){
+     char getCurPosition(int r,int c) const{
 	  return map[r][c];
      }
 

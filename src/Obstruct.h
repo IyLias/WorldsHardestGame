@@ -15,6 +15,7 @@ using namespace std;
 #endif
 
 #define SHORTEST	11
+#define INF		11111111
 
 class Obstruct{
 
@@ -29,10 +30,12 @@ class Obstruct{
       motions.setPatternNum(patternNum);
 
       this->patternNum = patternNum;
-      xpos = x; ypos = y;
+      xpos = x; preXpos = xpos;
+      ypos = y; preYpos = ypos;
       curPattern=0;
       patternStarted = false;
-      body = '@';
+     
+      body = (patternNum != 1 ? '@' : '%');
    }
 
    void setObstruct(int x,int y,int patternNum){
@@ -40,10 +43,11 @@ class Obstruct{
        motions.setPatternNum(patternNum);
 
        this->patternNum = patternNum;
-       xpos = x; ypos = y;
+       xpos = x; preXpos = xpos;
+       ypos = y; preYpos = ypos;
        curPattern = 0;
        patternStarted = false;
-       body = '@';
+       body = (patternNum != 1 ? '@' : '%');
    }
 
    int getXpos(){
@@ -67,6 +71,9 @@ class Obstruct{
     
     int xpos;
     int ypos;
+
+    int preXpos; // pos for SHORTEST move
+    int preYpos; // pos for SHORTEST move
 
     int curPattern; // idx for current Pattern
 

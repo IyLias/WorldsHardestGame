@@ -35,7 +35,7 @@ void GameManager::readDataFromFile(){ // read all datas about all stages from fi
    // each stage has different number of Obstructs
    // each Obstruct data has their first xpos,ypos and their pattern datas
 
-   for(int i=1;i< TOTAL_STAGE_NUM ; i++){
+   for(int i=1; i<= TOTAL_STAGE_NUM ; i++){
 
      for(int j=0;j<MAXROW;j++){   // read Map datas
         memset(bufForMap,0x00,sizeof(bufForMap));
