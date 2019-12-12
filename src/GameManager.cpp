@@ -200,11 +200,13 @@ void GameManager::gameGuide(){
  cout << "#    ";
  set_color(WHITE);
  cout << "Character";
- gotoxy(80,32);
+ gotoxy(79,32);
  set_color(BLUE);
- cout << "@    ";
+ cout << "@";
+ set_color(BOLD_GREEN);
+ cout << " %";
  set_color(WHITE);
- cout << "Obstructs";
+ cout << "   Obstructs";
  gotoxy(80,34);
  set_color(YELLOW);
  cout << "$    ";
@@ -232,7 +234,7 @@ bool GameManager::checkCharacterObstructCrush(){
 		      hero.getYpos() == stage[curStageNum].getCurObstructYpos(i)){	      
 	      
 	      // if following objects, then goto first pos 
-
+	      
 	      return true;
       }
   }
