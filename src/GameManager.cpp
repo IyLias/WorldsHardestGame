@@ -72,7 +72,7 @@ void GameManager::readDataFromFile(){ // read all datas about all stages from fi
    }
 
    //curStageNum--;
-   curStageNum=2;
+   curStageNum=1;
 }
 
 
@@ -226,6 +226,9 @@ bool GameManager::checkCharacterObstructCrush(){
   for(int i=0;i<stage[curStageNum].numOfObstructs;i++){  
       if(hero.getXpos() == stage[curStageNum].getCurObstructXpos(i) &&
 		      hero.getYpos() == stage[curStageNum].getCurObstructYpos(i)){	      
+	      
+	      // if following objects, then goto first pos 
+
 	      return true;
       }
   }
