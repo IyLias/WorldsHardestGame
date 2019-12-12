@@ -92,24 +92,28 @@ void GameManager::gameMenu(){
   int cursorPos;
   system("clear");
    
-//  gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-41);
-//  cout << "****************     ****************    ****************    ===================    =               = ";
-//  gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-40);
-//  cout << "****************_    ****************    ****************                   =               = ";
-//  gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-39);
-//  cout << "      ****           ****       *****    ***                ===================    =               = ";
-//   gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-38); 
-//  cout << "      ****           ****       *****    ***                ===================    =               = ";
-//    gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-37);
-//  cout << "      ****           ***************     ****************    ===================    =               = ";
-//    gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-36);
-//  cout << "      ****           ****       ****     ***                 ===================    =               = ";
-//  gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-35);
-//  cout << "      ****           ****        ****    ***                ===================    =               = ";
-//  gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-34);
-//  cout << "      ****           ****         ****   ****************                 ===================    =               = ";
-//  gotoxy(SCREEN_WIDTH/2-50,SCREEN_HEIGHT-33);
-//  cout << "      ****           ****         *****  ****************    ===================    =               = ";
+  gotoxy(SCREEN_WIDTH/2-75,SCREEN_HEIGHT-41);
+  cout << "  ***********         **********               *********                 ****              **********        ***********       ";
+  gotoxy(SCREEN_WIDTH/2-75,SCREEN_HEIGHT-40);
+  cout << " *************      *************          **************              **    **           ************      *************        ";
+  gotoxy(SCREEN_WIDTH/2-75,SCREEN_HEIGHT-39);
+  cout << "***              ****         *****      *****                       ***      ***        ***       ***     *** ";
+  gotoxy(SCREEN_WIDTH/2-75,SCREEN_HEIGHT-38);
+  cout << "***               *****        *****    ****                        ***        ***       ***       **      ***  ";
+  gotoxy(SCREEN_WIDTH/2-75,SCREEN_HEIGHT-37);
+  cout << "*************      ******              ***                         ****************      ***********       *************   ";
+  gotoxy(SCREEN_WIDTH/2-75,SCREEN_HEIGHT-36);
+  cout << "*************         ******           ***                        ******************     ***               *************";
+  gotoxy(SCREEN_WIDTH/2-75,SCREEN_HEIGHT-35);
+  cout << "***               ****      ******      ****                     ****            ****    ***               ***";
+  gotoxy(SCREEN_WIDTH/2-75,SCREEN_HEIGHT-34);
+  cout << "***                ****         ****      *****                 ****              ****   ***               ***";
+  gotoxy(SCREEN_WIDTH/2-75,SCREEN_HEIGHT-33);
+  cout << " *************       **************         **************     ****                ****  ***                *************";
+  gotoxy(SCREEN_WIDTH/2-75,SCREEN_HEIGHT-32);
+  cout << "  ***********         ***********             **********      ****                  **** ***                 ***********";
+
+
 
   cursorPos = GAME_START_CURSOR;
   gotoxy(CURSOR_XPOS,GAME_START_CURSOR);
