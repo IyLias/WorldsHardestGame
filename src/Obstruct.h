@@ -4,12 +4,17 @@
 #include <iostream>
 #include <cstdlib>
 #include <vector>
+#include <cmath>
 #include "linuxfunc.h"
 #include "PatternSet.h"
+#include "Character.h"
+#include "Map.h"
 
 using namespace std;
 
 #endif
+
+#define SHORTEST	11
 
 class Obstruct{
 
@@ -54,7 +59,7 @@ class Obstruct{
      motions.addMotion(tempPattern);
    }
 
-   void move();
+   void move(const Character& hero, const Map& gameMap);
    
    void draw();
 

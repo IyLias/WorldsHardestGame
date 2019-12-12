@@ -37,30 +37,30 @@ void GameManager::readDataFromFile(){ // read all datas about all stages from fi
 
    for(int i=1;i< TOTAL_STAGE_NUM ; i++){
 
-     for(int j=0;j<MAXROW;j++){
+     for(int j=0;j<MAXROW;j++){   // read Map datas
         memset(bufForMap,0x00,sizeof(bufForMap));
         read(datafile,bufForMap,MAXCOL+1);      
         stage[curStageNum].setGameMap(bufForMap);
      }
 
 
-     chxpos = readIntData(datafile); chypos = readIntData(datafile);
+     chxpos = readIntData(datafile); chypos = readIntData(datafile); // read Character Pos for Stage
      //cout << "chpos ; " << chxpos << " " << chypos <<endl;
      stage[curStageNum].setCharacterPos(curStageNum,chxpos,chypos);
 
-     txpos = readIntData(datafile); typos = readIntData(datafile);
+     txpos = readIntData(datafile); typos = readIntData(datafile);  // read Treasure Pos for Stage
      //cout << "treasure pos : " << txpos << " " << typos << endl;
      stage[curStageNum].setTreasure(txpos,typos);
 
 
-     obstructNum = readIntData(datafile);
+     obstructNum = readIntData(datafile);   // read number of Obstructs
    //cout << "obstruct num for stage 1: " << obstructNum << endl;
      for(int k=0;k<obstructNum;k++){
        obstructData.xpos = readIntData(datafile);obstructData.ypos = readIntData(datafile); obstructData.patternNum = readIntData(datafile); 
      //cout << "obstruct data: " << obstructData.xpos << " " << obstructData.ypos << " " << obstructData.patternNum << endl;
        stage[curStageNum].setObstruct(obstructData.xpos,obstructData.ypos,obstructData.patternNum);
 
-       for(int p=0;p<obstructData.patternNum;p++){
+       for(int p=0;p<obstructData.patternNum;p++){ // read Patterns of Obstructs
 	   patternData.period = readIntData(datafile); patternData.vel = readIntData(datafile); patternData.dir = readIntData(datafile);patternData.totalMoves = readIntData(datafile);
          //cout << "pattern data: " << patternData.period << " " << patternData.vel << " " << patternData.dir << " " << patternData.totalMoves << endl;
 	   stage[curStageNum].obstructAddMotion(patternData.period,patternData.vel,patternData.dir,patternData.totalMoves);
@@ -72,7 +72,7 @@ void GameManager::readDataFromFile(){ // read all datas about all stages from fi
    }
 
    //curStageNum--;
-   curStageNum=1;
+   curStageNum=2;
 }
 
 
@@ -116,9 +116,11 @@ void GameManager::gameMenu(){
   cout << "=>";
 
   gotoxy(CURSOR_XPOS + 3,GAME_START_CURSOR);
+  set_color(CYAN);
   cout << "Game Start"; fflush(stdout);
   gotoxy(CURSOR_XPOS + 4,GAME_END_CURSOR);
   cout << "Game End"; fflush(stdout);
+  set_color(WHITE);
 
   while(1){
 
@@ -126,7 +128,7 @@ void GameManager::gameMenu(){
           char ch = _getch();
 	  _putch(ch);
 
-	  if(ch == 's'){ // when enter pressed
+	  if(ch == 's'){ // when s key pressed 
 
  	    if(cursorPos == GAME_START_CURSOR)
 		 gameState = GAME_PLAYING_STATE;
@@ -175,26 +177,35 @@ void GameManager::gameMenu(){
 void GameManager::gameGuide(){
 
  gotoxy(40,30);
- cout << "---------move Character #----------";
+ cout << "---------move Character "; set_color(RED); cout <<"#"; set_color(WHITE); cout << "----------";
  gotoxy(40,32);
  cout << "-move right: press right arrow key-";
  gotoxy(40,34);
- cout << "-move left: press left arrow key-";
+ cout << "-move left: press left arrow key---";
  gotoxy(40,36);
  cout << "-move down: press bottom arrow key-";
  gotoxy(40,38);
- cout << "-move up: press up arrow key-";
+ cout << "-move up: press up arrow key-------";
  gotoxy(40,40);
  cout << "-----------------------------------";
 
  
 
  gotoxy(80,30);
- cout << "#    Character";
+ set_color(RED);
+ cout << "#    ";
+ set_color(WHITE);
+ cout << "Character";
  gotoxy(80,32);
- cout << "@    Obstructs";
+ set_color(BLUE);
+ cout << "@    ";
+ set_color(WHITE);
+ cout << "Obstructs";
  gotoxy(80,34);
- cout << "$    Treasure";
+ set_color(YELLOW);
+ cout << "$    ";
+ set_color(WHITE);
+ cout << "Treasure";
 
  gotoxy(SCREEN_WIDTH/2-20,6);
  cout << "STAGE " << curStageNum;
@@ -246,7 +257,7 @@ void GameManager::playGame(){
 
   while(1){
 
-     stage[curStageNum].moveObstructs();
+     stage[curStageNum].moveObstructs(hero,stage[curStageNum].getGameMap());
      if(checkCharacterObstructCrush() == true){ // when obstruct and character crushed, goto first position
 	hero.move(stage[curStageNum].characterPos[curStageNum][0],stage[curStageNum].characterPos[curStageNum][1]);
 	continue;	

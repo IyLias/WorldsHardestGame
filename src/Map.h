@@ -53,12 +53,18 @@ class Map{
 	for(int i=0;i<MAXROW;i++){
 	   gotoxy(MAP_START_XPOS,MAP_START_YPOS+i);
    	   for(int j=0;j<MAXCOL;j++)
-		if(map[i][j] == '1')
-		   cout << '*';
+		if(map[i][j] == '1'){
+		  set_color(MAGENTA);
+		  cout << '*';
+		  set_color(WHITE);
+		}
 	        else if(map[i][j] == '0' || map[i][j] =='2')
 		   cout << ' ';
-	        else if(map[i][j] == '7')
+	        else if(map[i][j] == '7'){
+		   set_color(YELLOW);
 		   cout << '$';
+		   set_color(WHITE);
+		}
 	}
 
      }

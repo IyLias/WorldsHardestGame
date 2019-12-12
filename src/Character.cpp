@@ -21,6 +21,6 @@ void Character::move(int x,int y){
 void Character::draw(){
 
  gotoxy(xpos,ypos);
- cout << body;
+ set_color(RED); cout << body; set_color(WHITE);
  gotoxy(xpos,ypos);
 }

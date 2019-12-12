@@ -11,8 +11,8 @@
 using namespace std;
 
 #include "PatternSet.h"
-#include "Stage.h"
 #include "Character.h"
+#include "Stage.h"
 #include "GameManager.h"
 
 

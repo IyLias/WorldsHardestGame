@@ -77,9 +77,9 @@ class Stage{
 	    Obstructs[i].draw();
    }
 
-   void moveObstructs(){
+   void moveObstructs(const Character& hero,const Map& gameMap){
 	for(int i=0;i<Obstructs.size();i++)
-	   Obstructs[i].move();
+	   Obstructs[i].move(hero,gameMap);
    }
 
    void addObstruct(const Obstruct& obs){
@@ -114,6 +114,10 @@ class Stage{
 
    int getTreasureYpos(){
        return treasureYpos;
+   }
+
+   Map& getGameMap(){
+       return gameMap;
    }
 
    char getMapCurPosition(int r,int c){
