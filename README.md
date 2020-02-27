@@ -1,37 +1,35 @@
-#LinuxProj
+# LinuxProj
 
 
-***TODO)
+## TODO)
 
--> ***add new Obstruct which directly follows Character // calculating the distance between Character and Obstruct, choose the shortest path 
+- add new Obstruct which directly follows Character // calculating the distance between Character and Obstruct, choose the shortest path 
 
-not perfectly but implemented
+  not perfectly but implemented
 
+- implement opening menu
 
--> implement opening menu
+- implement game Ending
 
--> implement game Ending
+- add details & Stages // add colors for all
 
--> add details & Stages // add colors for all
+- add more Obstructs in Stage 2 and Stage 3
 
-add more Obstructs in Stage 2 and Stage 3
+- when Character died, make following Obstructs goto first Pos
 
--> when Character died, make following Obstructs goto first Pos
+## DONE)
 
+- implement Map class and draw (solved)
 
-DONE)
+- read datas of Obstructs from datafile.txt (solved)
 
--> implement Map class and draw (solved)
+- make GameManager have Stage class which has Map and Obstruct for corresponding stage (solved)
 
--> read datas of Obstructs from datafile.txt (solved)
+- implemented Character only move in Map (solveD)
 
--> make GameManager have Stage class which has Map and Obstruct for corresponding stage (solved)
+- arrange obstructs in stage 1 systematically(solvedDD) 
 
--> implemented Character only move in Map (solveD)
+- decorate side of game screen (around Map) // like adding options or guide or something else ( ing...)
 
--> arrange obstructs in stage 1 systematically(solvedDD) 
-
--> decorate side of game screen (around Map) // like adding options or guide or something else ( ing...)
-
--> add Treasure in Map and implement checkGameCLear() (solveddd)
+- add Treasure in Map and implement checkGameCLear() (solveddd)
 
