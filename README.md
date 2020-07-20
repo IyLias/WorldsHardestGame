@@ -1,4 +1,6 @@
-# LinuxProj
+# World's Hardest Game
+
+ implemented simple version of World's Hardest Game in Ubuntu using C/C++
 
 
 ## TODO)
