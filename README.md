@@ -6,6 +6,11 @@
 https://youtu.be/TmuEk3eB5pg
 
 
+## Preparation
+
+- set full size of terminal(otherwise, game menu screen will be crahsed)
+
+
 
 ## TODO
 
