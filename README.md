@@ -1,11 +1,13 @@
 # World's Hardest Game
 
  implemented simple version of World's Hardest Game in Ubuntu using C/C++
+<br><br>
 
 ## Game Link
 https://youtu.be/TmuEk3eB5pg
 
 
+<br><br>
 ## Game View
 
 This is main menu. You can move using up and down arrow keys 
