@@ -2,8 +2,17 @@
 
  implemented simple version of World's Hardest Game in Ubuntu using C/C++
 
-# Game Link
+## Game Link
 https://youtu.be/TmuEk3eB5pg
+
+
+## Game View
+<img src = "https://user-images.githubusercontent.com/48081162/172633711-43afcc41-cf09-4de4-af1e-d14af762d85b.png">
+<img src = "https://user-images.githubusercontent.com/48081162/172633731-7578d275-cf93-4a82-8c02-5a6b781b5a8c.png">
+<img src = "https://user-images.githubusercontent.com/48081162/172633742-312be50f-7bb4-4f43-a42f-fcb5c0331fed.png">
+<img src = "https://user-images.githubusercontent.com/48081162/172633756-d8843c53-45a7-4405-82f0-702db9b189fc.png">
+
+
 
 
 ## Preparation
