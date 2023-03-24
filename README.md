@@ -2,6 +2,7 @@
 
  implemented simple version of World's Hardest Game in Ubuntu using C/C++
 <br><br>
+<img src ="https://user-images.githubusercontent.com/48081162/227422113-254b908a-5219-4a8b-a8cb-edfb1fce004e.png" width="50%" height="60%">
 
 ## Game Link
 https://youtu.be/TmuEk3eB5pg
@@ -10,17 +11,17 @@ https://youtu.be/TmuEk3eB5pg
 <br><br>
 ## Game View
 
-This is main menu. You can move using up and down arrow keys 
-<img src = "https://user-images.githubusercontent.com/48081162/172633711-43afcc41-cf09-4de4-af1e-d14af762d85b.png">
+This is main menu. You can move using up and down arrow keys <br><br>
+<img src = "https://user-images.githubusercontent.com/48081162/172633711-43afcc41-cf09-4de4-af1e-d14af762d85b.png" width="50%" height="60%">
 
-If you press game start, here we meet stage 1
-<img src = "https://user-images.githubusercontent.com/48081162/172633731-7578d275-cf93-4a82-8c02-5a6b781b5a8c.png">
+If you press game start, here we meet stage 1 <br><br>
+<img src = "https://user-images.githubusercontent.com/48081162/172633731-7578d275-cf93-4a82-8c02-5a6b781b5a8c.png" width="50%" height="60%">
 
-stage 2
-<img src = "https://user-images.githubusercontent.com/48081162/172633742-312be50f-7bb4-4f43-a42f-fcb5c0331fed.png">
+stage 2 <br><br>
+<img src = "https://user-images.githubusercontent.com/48081162/172633742-312be50f-7bb4-4f43-a42f-fcb5c0331fed.png" width="50%" height="60%">
 
-stage 3
-<img src = "https://user-images.githubusercontent.com/48081162/172633756-d8843c53-45a7-4405-82f0-702db9b189fc.png">
+stage 3 <br><br>
+<img src = "https://user-images.githubusercontent.com/48081162/172633756-d8843c53-45a7-4405-82f0-702db9b189fc.png" width="50%" height="60%">
 
 
 
