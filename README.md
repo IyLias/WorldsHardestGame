@@ -16,7 +16,7 @@ https://youtu.be/TmuEk3eB5pg
 
 * Set full size of terminal 
 
-<br><br>
+<br>
 
 Otherwise, game screen will be crashed.
 
