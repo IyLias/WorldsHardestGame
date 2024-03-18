@@ -27,8 +27,8 @@ int main(){
  }
 
 
-GAME_END:
-
+  GAME_END:
+	system("reset");
 
  return 0;
 }

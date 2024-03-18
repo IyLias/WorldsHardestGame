@@ -54,7 +54,7 @@ class Map{
 	   gotoxy(MAP_START_XPOS,MAP_START_YPOS+i);
    	   for(int j=0;j<MAXCOL;j++)
 		if(map[i][j] == '1'){
-		  set_color(MAGENTA);
+		  set_color(WHITE);
 		  cout << '*';
 		  set_color(WHITE);
 		}

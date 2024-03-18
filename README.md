@@ -9,6 +9,17 @@ https://youtu.be/TmuEk3eB5pg
 
 
 <br><br>
+
+## Preparation 
+
+* Need to set Screen Resolution at least 1600 for Horizontal and 1200 for Vertical. 
+
+* Set full size of terminal 
+
+Otherwise, game screen will be crashed.
+
+<br><br>
+
 ## Game View
 
 This is main menu. You can move using up and down arrow keys <br><br>
@@ -23,14 +34,7 @@ stage 2 <br><br>
 stage 3 <br><br>
 <img src = "https://user-images.githubusercontent.com/48081162/172633756-d8843c53-45a7-4405-82f0-702db9b189fc.png" width="50%" height="60%">
 
-
-
-
-## Preparation
-
-- set full size of terminal(otherwise, game menu screen will be crahsed)
-
-
+<br><br>
 
 ## TODO
 

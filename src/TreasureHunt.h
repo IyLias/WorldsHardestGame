@@ -7,6 +7,7 @@
 #include <string>
 #include <fcntl.h>
 #include "linuxfunc.h"
+//#include <ncurses.h>
 
 using namespace std;
 
