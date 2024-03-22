@@ -27,7 +27,7 @@ Otherwise, game screen will be crashed.
 This is main menu. You can move using up and down arrow keys <br><br>
 <img src = "https://user-images.githubusercontent.com/48081162/172633711-43afcc41-cf09-4de4-af1e-d14af762d85b.png" width="50%" height="60%">
 
-If you press game start, here we meet stage 1 <br><br>
+If you press game start('s' key is yes button), here we meet stage 1 <br><br>
 <img src = "https://user-images.githubusercontent.com/48081162/172633731-7578d275-cf93-4a82-8c02-5a6b781b5a8c.png" width="50%" height="60%">
 
 stage 2 <br><br>
